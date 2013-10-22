@@ -1,0 +1,153 @@
+Module: Mailing List
+Version: 1.6.0 BETA
+Author: Oliver Riesen <oliver@riesen.org>
+
+Sends new posts to one or more forum specific mailing lists (for example
+managed by Majordomo or Mailman).
+
+Tested on version 5.2.15a
+
+
+License:
+-------
+
+Free to use, modify, or redistribute this code so long as I am given credit for
+the original development somewhere. This code comes with absolutly no warranty.
+
+
+Requirements:
+------------
+
+Minimum Phorum version: 5.2.11.
+
+If you want to mail post attachments you have to install and enable the Send
+Mail Through SMTP Module which is part of the core distribution of Phorum.
+
+
+Installation:
+------------
+
+1. Unpack the archive.
+
+2. Move the directory "mailinglist" to the directory "mods" within your
+   Phorum installation. Don't change the directory name!
+
+3. Login as administrator in Phorum's administrative interface and go to the
+   "Modules" section.
+
+4. Enable the module "Mailinglist".
+
+5. Go to the settings screen for the module to add email addresses for the
+   receiving mailing lists.
+
+
+Patching Core Function:
+----------------------
+
+The core mail function doesn't support attachments. If you want to send
+attachments you have to patch include/email_functions.php:
+
+Open the file and search for (starting line 242):
+
+        $hook_data = array(
+            'addresses'   => $addresses,
+            'from'        => $from_address,
+            'subject'     => $mailsubject,
+            'body'        => $mailmessage,
+            'bcc'         => $PHORUM['use_bcc'],
+            'messageid'   => $messageid
+        );
+
+Replace this block by:
+
+        $hook_data = array(
+            'addresses'   => $addresses,
+            'from'        => $from_address,
+            'subject'     => $mailsubject,
+            'body'        => $mailmessage,
+            'bcc'         => $PHORUM['use_bcc'],
+            'messageid'   => $messageid,
+            'attachments' => $data['attachments']
+        );
+
+
+Module settings:
+---------------
+
+== Strip HTML <tags> and BBcode [tags] from the body
+
+If this option is marked all HTML <tags> and BBcode [tags] are stripped from
+the body.
+
+Default value is checked.
+
+
+== Send post attachments (requires Send Mail Through SMTP Module)?
+
+If this option is marked attachments are send to the mailing list. This
+requires the Send Mail Through SMTP Module to be enabled. Take care that your
+mailing list accepts attachments.
+
+Default value is unchecked.
+
+
+== Use individual FROM addresses
+
+If this option is marked you can configure for each forum the FROM address as
+sent to the mailing list. If you don't to set a FROM address for a forum, then
+the system email FROM address is used.
+
+When changing this option you have to save the settings to reflect change in
+the settings form.
+
+Default value is unchecked.
+
+
+== Define mailing list destinations and email FROM addresses
+
+Insert one or more valid destination email addresses (your mailing lists).
+Separate several addresses by comma. Insert a single FROM address, or leave
+blank to use the system email FROM address.
+
+
+Language support:
+----------------
+
+This module supports multiple languages.
+
+The following languages are included:
+
+- English
+- German (Sie)
+- German (Du) male
+- German (Du) female
+
+If you want to translate the module to a new language, you´ll have to do the
+following:
+
+Copy lang/english.php to lang/yourlang.php (yourlang.php must have the same
+name as Phorum´s main language file that you use). After this, translate the
+strings in lang/yourlang.php.
+
+If you have created a translation for this module, please post a zip file
+containing lang/yourlang.php in the module thread at phorum.org, so the
+translation can be added to the module package. See:
+http://www.phorum.org/phorum5/read.php?62,129244
+
+
+Sanity Checks:
+-------------
+
+If you have problems with this module login as administrator in Phorum's
+administrative interface and go to the "System Sanity Checks" section. Check
+for warnings or errors for the Mailing List Module.
+
+The following checks are performed:
+
+- Exists module settings?
+- Send Mail Through SMTP Module enabled when Send Post Attachments option is marked?
+- Exists default language file?
+- Exists forum specific language file(s)?
+- Custom language file(s) contains same array keys as the english file?
+- Mailing list destinations are valid email addresses?
+- Email FROM addresses are valid email addresses?

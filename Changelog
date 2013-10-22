@@ -1,0 +1,42 @@
+Changelog:
+---------
+
+2008/04/01 version 1.0.0 by Oliver Riesen <oliver@riesen.org>
+- Initial release for Phorum 5.2; some code in the settings page based on the
+  "File List Module" from the Phorum developer Maurice Makaay.
+
+2008/04/01 version 1.1.0 by Oliver Riesen <oliver@riesen.org>
+- Handling moderated forums.
+
+2008/04/01 version 1.1.1 by Oliver Riesen <oliver@riesen.org>
+- Bug fix: Handling of multiple email adresses as destination.
+
+2008/04/16 version 1.1.2 by Oliver Riesen <oliver@riesen.org>
+- Copied that nice icons for folders and forums from Topic Poll Module.
+
+2008/04/29 version 1.2.0 by Oliver Riesen <oliver@riesen.org>
+- New option to send email without stripping HTML <tags> and BBcode [tags] from
+  the body.
+
+2008/05/12 version 1.3.0 by Oliver Riesen (oliver@riesen.org)
+- German language files renamed according to structuring the language file and
+  charset support (http://www.phorum.org/phorum5/read.php?14,129937).
+- Added german language files with UTF-8 charset.
+
+2008/09/26 version 1.4.0 by Oliver Riesen (oliver@riesen.org)
+- The FROM address as sent to the mailing list can be configured for each
+  forum. If the user chooses not to set a FROM address for a forum, then
+  system email FROM address is used. Sanity check if email FROM addresses are
+  valid email addresses. Thanks to Phil Driscoll (phil@dialsolutions.co.uk).
+
+2010/05/28 version 1.5.0 by Oliver Riesen (oliver@riesen.org)
+- In-reply-to and references headers added
+  (http://www.phorum.org/phorum5/read.php?20,137274,137274). Thanks to Phorum
+  developer Thomas Seifert.
+
+2010/06/22 version 1.5.1 by Oliver Riesen (oliver@riesen.org)
+- When forum specific FROM addresses are used there are build now with the
+  system_email_from_name according to the default behavior of Phorum.
+
+2010/07/16 version 1.6.0 BETA by Oliver Riesen (oliver@riesen.org)
+- Added support for sending attachments.
