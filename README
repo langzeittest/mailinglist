@@ -1,11 +1,11 @@
 Module: Mailing List
-Version: 1.6.0 BETA
+Version: 1.6.1
 Author: Oliver Riesen <oliver@riesen.org>
 
 Sends new posts to one or more forum specific mailing lists (for example
 managed by Majordomo or Mailman).
 
-Tested on version 5.2.15a
+Tested on version 5.2.21
 
 
 License:
@@ -18,7 +18,7 @@ the original development somewhere. This code comes with absolutly no warranty.
 Requirements:
 ------------
 
-Minimum Phorum version: 5.2.11.
+Minimum Phorum version: 5.2.21.
 
 If you want to mail post attachments you have to install and enable the Send
 Mail Through SMTP Module which is part of the core distribution of Phorum.
@@ -41,43 +41,13 @@ Installation:
    receiving mailing lists.
 
 
-Patching Core Function:
-----------------------
-
-The core mail function doesn't support attachments. If you want to send
-attachments you have to patch include/email_functions.php:
-
-Open the file and search for (starting line 242):
-
-        $hook_data = array(
-            'addresses'   => $addresses,
-            'from'        => $from_address,
-            'subject'     => $mailsubject,
-            'body'        => $mailmessage,
-            'bcc'         => $PHORUM['use_bcc'],
-            'messageid'   => $messageid
-        );
-
-Replace this block by:
-
-        $hook_data = array(
-            'addresses'   => $addresses,
-            'from'        => $from_address,
-            'subject'     => $mailsubject,
-            'body'        => $mailmessage,
-            'bcc'         => $PHORUM['use_bcc'],
-            'messageid'   => $messageid,
-            'attachments' => $data['attachments']
-        );
-
-
 Module settings:
 ---------------
 
-== Strip HTML <tags> and BBcode [tags] from the body
+== Use system settings for stripping HTML and BBcode [tags]?
 
-If this option is marked all HTML <tags> and BBcode [tags] are stripped from
-the body.
+If this option is marked all HTML and BBcode [tags] are stripped from the body
+depending on the "General Settings".
 
 Default value is checked.
 
