@@ -54,8 +54,8 @@ if (!empty($error)){
 
 $frm->addbreak('Edit Settings for the Mailing List Module');
 // Strip body?
-$row = $frm->addrow('Strip HTML <tags> and BBcode [tags] from the body? ', $frm->checkbox('strip_body', '1', '', $PHORUM['mod_mailinglist']['strip_body']));
-$frm->addhelp($row, 'Strip body', 'If this option is marked all HTML <tags> and BBcode [tags] are stripped from the body.');
+$row = $frm->addrow('Use system settings for stripping HTML and BBcode [tags]? ', $frm->checkbox('strip_body', '1', '', $PHORUM['mod_mailinglist']['strip_body']));
+$frm->addhelp($row, 'Strip body', 'If this option is marked all HTML <tags> and BBcode [tags] are stripped from the body depending on the &quot;General Settings&quot;.');
 // Allow Attachments?
 $row = $frm->addrow('Send post attachments (requires Send Mail Through SMTP Module)? ', $frm->checkbox('allow_attachments', '1', '', $PHORUM['mod_mailinglist']['allow_attachments']));
 $frm->addhelp($row, 'Send attachments', 'If this option is marked attachments are send to the mailing list. This requires the Send Mail Through SMTP Module to be enabled. Take care that your mailing list accepts attachments.');

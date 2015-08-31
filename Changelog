@@ -40,3 +40,8 @@ Changelog:
 
 2010/07/16 version 1.6.0 BETA by Oliver Riesen (oliver@riesen.org)
 - Added support for sending attachments.
+
+2015/08/28 version 1.6.1 by Oliver Riesen (oliver@riesen.org)
+- Phorum 5.2.21 is required.
+- Optionally stripping HTML and BBCode <tags> depends now on the new "How to
+  strip quotes in mails" setting in "General Settings".

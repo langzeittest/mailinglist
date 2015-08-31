@@ -105,7 +105,7 @@ function mod_mailinglist_send($message) {
             'author'     => phorum_api_user_get_display_name($message['user_id'], $message['author'], PHORUM_FLAG_PLAINTEXT),
             'subject'    => $message['subject'],
             'full_body'  => $message['body'],
-            'plain_body' => $PHORUM['mod_mailinglist']['strip_body']==1 ? phorum_strip_body($message['body']) : $message['body'],
+            'plain_body' => $PHORUM['mod_mailinglist']['strip_body']==1 ? phorum_strip_body($message['body'], true, $PHORUM['strip_quote_mail']) : $message['body'],
             'read_url'   => phorum_get_url(PHORUM_READ_URL, $message['thread'], $message['message_id']),
             'msgid'      => $message['msgid'],
 

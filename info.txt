@@ -3,8 +3,8 @@ desc:  Sends new posts to one or more forum specific mailing lists (for example 
 author: Oliver Riesen <oliver@riesen.org>
 url: http://www.phorum.org/phorum5/read.php?62,129244
 category: email
-required_version: 5.2.11
-version: 1.6.0 BETA
+required_version: 5.2.21
+version: 1.6.1
 
 hook: after_approve|mod_mailinglist_after_approve
 hook: after_post|mod_mailinglist_after_post
