@@ -121,3 +121,10 @@ The following checks are performed:
 - Custom language file(s) contains same array keys as the english file?
 - Mailing list destinations are valid email addresses?
 - Email FROM addresses are valid email addresses?
+
+
+Contribution:
+------------
+
+Contribute on GitHub:
+https://github.com/langzeittest/mailinglist
